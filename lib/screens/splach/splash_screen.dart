@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lafuu_e_commerce/core/utils/constant.dart';
 
-import '../core/utils/app_router.dart';
+import '../../core/utils/app_router.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

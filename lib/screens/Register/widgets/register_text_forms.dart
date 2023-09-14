@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../core/utils/app_router.dart';
 import '../../../core/utils/widgets/custom_btn.dart';
 import '../../../core/utils/widgets/custom_text_field.dart';
 
@@ -31,7 +33,9 @@ class RegisterTextFormFieldsSection extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         CustomBtn(
-          onPress: () {},
+          onPress: () {
+            GoRouter.of(context).pushReplacement(AppRouter.kHomeScreen);
+          },
           child: const Text('Sign Up'),
         ),
         const SizedBox(height: 21),

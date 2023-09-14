@@ -25,7 +25,7 @@ class LoginScreen extends StatelessWidget {
                 const LoginHeaderSection(),
                 const LoginTextFormFieldsSection(),
                 const LoginOthwerWaysSection(),
-                SizedBox(height: MediaQuery.of(context).size.height * .045),
+                SizedBox(height: MediaQuery.of(context).size.height * .05),
                 Image.asset(
                   'assets/images/Home Indicator.png',
                   width: MediaQuery.of(context).size.width * .4,

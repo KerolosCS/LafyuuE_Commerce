@@ -28,11 +28,26 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  bloc: ^8.1.2
+  carousel_slider: ^4.2.1
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.3
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.3.2
+  font_awesome_flutter: ^10.5.0
   go_router: ^10.1.2
   google_fonts: ^5.1.0
+  smooth_page_indicator: ^1.1.0
+flutter_native_splash:
+  color: "#40BFFF"
+  image: assets/images/logo.png
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo2.png"
 
 dev_dependencies:
   flutter_lints: ^2.0.0

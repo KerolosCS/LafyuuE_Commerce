@@ -32,7 +32,9 @@ class LoginOthwerWaysSection extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         CustomTxtBtn(
-          onPress: () {},
+          onPress: () {
+           
+          },
           child: const Text(
             'Forgot Password?',
             style: TextStyle(
