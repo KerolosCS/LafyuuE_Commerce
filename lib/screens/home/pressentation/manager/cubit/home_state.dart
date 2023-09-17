@@ -4,4 +4,6 @@ sealed class HomeState {}
 
 final class HomeInitial extends HomeState {}
 
-final class PageChangeState extends HomeState {}
+final class SlideChangeState extends HomeState {}
+
+final class BottomNavChange extends HomeState {}

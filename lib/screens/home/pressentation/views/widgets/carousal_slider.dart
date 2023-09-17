@@ -13,9 +13,9 @@ class CustomSlider extends StatelessWidget {
     return CarouselSlider(
       options: CarouselOptions(
         onPageChanged: (index, reason) =>
-            HomeCubit.get(context).pageChange(index),
+            HomeCubit.get(context).slideChange(index),
         viewportFraction: 1,
-        height: height * .30,
+        height: height * .32,
         enableInfiniteScroll: true,
         autoPlay: true,
         autoPlayCurve: Curves.fastOutSlowIn,
@@ -26,8 +26,8 @@ class CustomSlider extends StatelessWidget {
           return Builder(
             builder: (BuildContext context) {
               return Container(
-                width: MediaQuery.of(context).size.width,
-                margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                width: MediaQuery.sizeOf(context).width,
+                // margin: const EdgeInsets.symmetric(horizontal: 5.0),
                 decoration: const BoxDecoration(
                   color: kPrimaryColor,
                 ),

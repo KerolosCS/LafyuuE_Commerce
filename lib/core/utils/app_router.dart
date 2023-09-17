@@ -1,23 +1,20 @@
-// void navigateToHome() {
-//   Future.delayed(
-//     const Duration(seconds: 3),
-//     () {
-//       GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
-//     },
-//   );
-// }
+// import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lafuu_e_commerce/screens/Login/pressentation/views/login_view.dart';
 import 'package:lafuu_e_commerce/screens/Register/view/register_screen.dart';
 import 'package:lafuu_e_commerce/screens/home/pressentation/views/home_veiw.dart';
+// import 'package:lafuu_e_commerce/screens/offers_eplore/pressentation/views/explore_view.dart';
 // import 'package:lafuu_e_commerce/screens/splash_screen.dart';
 
 abstract class AppRouter {
+  
   static const kLogScreen = '/LoginScreen';
   static const kRegScreen = '/RegisterScreen';
   static const kHomeScreen = '/Home';
+  static const kEploreScreen = '/explore';
 
   static final router = GoRouter(
+    
     routes: [
       // GoRoute(
       //   path: '/',
@@ -25,6 +22,7 @@ abstract class AppRouter {
       // ),
       GoRoute(
         path: '/',
+        name: 'root',
         builder: (context, state) => const LoginScreen(),
       ),
       GoRoute(
@@ -39,6 +37,7 @@ abstract class AppRouter {
         path: '/RegisterScreen',
         builder: (context, state) => const RegisterScreen(),
       ),
+    
     ],
   );
 }
