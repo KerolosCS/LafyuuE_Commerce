@@ -10,7 +10,7 @@ class CategryListItem extends StatelessWidget {
     return InkWell(
       onTap: () {},
       child: Padding(
-        padding: const EdgeInsets.all(4.0),
+        padding: const EdgeInsets.only(left: 4.0),
         child: Column(
           children: [
             Image.asset(

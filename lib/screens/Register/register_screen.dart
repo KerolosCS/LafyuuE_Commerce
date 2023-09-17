@@ -11,26 +11,35 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        // resizeToAvoidBottomInset: false,
         body: Padding(
           padding: EdgeInsets.only(
             top: MediaQuery.of(context).size.height * .0905,
             left: 16,
             right: 16,
           ),
-          child: SingleChildScrollView(
+          child: CustomScrollView(
             physics: const BouncingScrollPhysics(),
-            child: Column(
-              children: [
-                const RegisterHeaderSection(),
-                const RegisterTextFormFieldsSection(),
-                const HaveAccountSection(),
-                SizedBox(height: MediaQuery.of(context).size.height * .17),
-                Image.asset(
-                  'assets/images/Home Indicator.png',
-                  width: MediaQuery.of(context).size.width * .4,
-                )
-              ],
-            ),
+            slivers: [
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Column(
+                  children: [
+                    const RegisterHeaderSection(),
+                    const RegisterTextFormFieldsSection(),
+                    const HaveAccountSection(),
+                    // SizedBox(height: MediaQuery.of(context).size.height * .17),
+                    const Spacer(),
+                    Image.asset(
+                      'assets/images/Home Indicator.png',
+                      width: MediaQuery.of(context).size.width * .4,
+                    ),
+                    const SizedBox(height: 6),
+                  ],
+                ),
+              ),
+            ],
+           
           ),
         ),
       ),
