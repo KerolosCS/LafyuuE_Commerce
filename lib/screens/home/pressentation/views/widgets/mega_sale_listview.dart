@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lafuu_e_commerce/screens/home/widgets/product_item.dart';
+import 'package:lafuu_e_commerce/screens/home/pressentation/views/widgets/product_item.dart';
 
-class ForSaleProductsListview extends StatelessWidget {
-  const ForSaleProductsListview({super.key});
+class MegasaleProductsListview extends StatelessWidget {
+  const MegasaleProductsListview({super.key});
 
   @override
   Widget build(BuildContext context) {

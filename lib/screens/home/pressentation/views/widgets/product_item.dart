@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/utils/constant.dart';
-import '../../../core/utils/styles.dart';
+import '../../../../../core/utils/constant.dart';
+import '../../../../../core/utils/styles.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem({super.key});

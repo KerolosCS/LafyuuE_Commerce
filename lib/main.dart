@@ -21,7 +21,7 @@ class LafuuApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: AppRouter.router,
-      theme: ThemeData(
+      theme: ThemeData.light().copyWith(
         primaryColor: kPrimaryColor,
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),

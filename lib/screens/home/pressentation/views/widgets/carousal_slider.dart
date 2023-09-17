@@ -1,8 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/utils/constant.dart';
-import '../manager/cubit/home_cubit.dart';
+import '../../../../../core/utils/constant.dart';
+import '../../manager/cubit/home_cubit.dart';
+// import '../manager/cubit/home_cubit.dart';
 
 class CustomSlider extends StatelessWidget {
   const CustomSlider({super.key, required this.height});

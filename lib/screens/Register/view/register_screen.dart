@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lafuu_e_commerce/screens/Register/widgets/register_have_acc_section.dart';
+import 'package:lafuu_e_commerce/screens/Register/view/widgets/register_have_acc_section.dart';
 // import 'package:flutter/widgets.dart';
-import 'package:lafuu_e_commerce/screens/Register/widgets/register_header_section.dart';
-import 'package:lafuu_e_commerce/screens/Register/widgets/register_text_forms.dart';
+import 'package:lafuu_e_commerce/screens/Register/view/widgets/register_header_section.dart';
+import 'package:lafuu_e_commerce/screens/Register/view/widgets/register_text_forms.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});

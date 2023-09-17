@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/utils/styles.dart';
+import '../../../../../core/utils/styles.dart';
 
 class RecommendedBanner extends StatelessWidget {
   const RecommendedBanner({super.key});

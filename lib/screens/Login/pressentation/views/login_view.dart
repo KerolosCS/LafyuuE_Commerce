@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lafuu_e_commerce/screens/Login/widgets/login_header_section.dart';
-import 'package:lafuu_e_commerce/screens/Login/widgets/login_othereays_section.dart';
-import 'package:lafuu_e_commerce/screens/Login/widgets/login_text_forms.dart';
+import 'package:lafuu_e_commerce/screens/Login/pressentation/views/widgets/login_header_section.dart';
+import 'package:lafuu_e_commerce/screens/Login/pressentation/views/widgets/login_othereays_section.dart';
+import 'package:lafuu_e_commerce/screens/Login/pressentation/views/widgets/login_text_forms.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

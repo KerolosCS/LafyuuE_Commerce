@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/utils/constant.dart';
-import '../../../core/utils/styles.dart';
+import '../../../../../core/utils/constant.dart';
+import '../../../../../core/utils/styles.dart';
 
 class HeaderInfo extends StatelessWidget {
   const HeaderInfo({
