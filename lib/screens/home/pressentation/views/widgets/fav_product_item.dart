@@ -1,23 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:lafuu_e_commerce/screens/home/data/models/product_model.dart';
-import 'package:lafuu_e_commerce/screens/home/pressentation/views/product_details_view.dart';
 
 import '../../../../../core/utils/constant.dart';
 import '../../../../../core/utils/styles.dart';
 
-class ProductItem extends StatelessWidget {
-  const ProductItem({super.key, this.product});
-  final Product? product;
+class FavProductItem extends StatelessWidget {
+  FavProductItem({super.key, this.product});
+  Product? product;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ProductDetailsView(model: product),
-            ));
-      },
+      onTap: () {},
       child: Container(
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(8)),
@@ -65,7 +58,7 @@ class ProductItem extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
-                  const Spacer(),
+                  const SizedBox(width: 8),
                   if (product?.oldPrice != product?.price)
                     Text(
                       '%${product?.discount}',
@@ -75,6 +68,16 @@ class ProductItem extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
+                  const Spacer(),
+                  IconButton(
+                    padding: const EdgeInsets.all(0),
+                    constraints: const BoxConstraints(),
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.delete_outline,
+                      color: kSecondearyFontColor,
+                    ),
+                  )
                 ],
               )
             ],

@@ -8,8 +8,10 @@ class HeaderInfo extends StatelessWidget {
     super.key,
     required this.l,
     required this.r,
+    this.tap,
   });
   final String l, r;
+  final void Function()? tap;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,7 +22,7 @@ class HeaderInfo extends StatelessWidget {
         ),
         const Spacer(),
         InkWell(
-          onTap: () {},
+          onTap: tap,
           child: Text(
             r,
             style: Styles.textStyle14.copyWith(

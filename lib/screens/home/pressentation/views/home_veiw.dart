@@ -1,15 +1,27 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:lafuu_e_commerce/screens/home/pressentation/manager/cubit/home_cubit.dart';
+import 'package:lafuu_e_commerce/core/utils/api_service.dart';
+import 'package:lafuu_e_commerce/screens/home/pressentation/manager/categoryCubit/category_cubit.dart';
+import 'package:lafuu_e_commerce/screens/home/pressentation/manager/appCubit/home_cubit.dart';
+import 'package:lafuu_e_commerce/screens/home/pressentation/manager/sliderCubit/slider_cubit.dart';
 import 'package:lafuu_e_commerce/screens/home/pressentation/views/widgets/home_view_body.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.sizeOf(context).height;
     var width = MediaQuery.sizeOf(context).width;
-    return BlocProvider(
-      create: (context) => HomeCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+            create: (context) => SliderCubit(ApiService(Dio()))..getBanners()),
+        BlocProvider(
+            create: (context) =>
+                CategoryCubit(ApiService(Dio()))..getCategories()),
+      ],
       child: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           return SafeArea(
@@ -18,13 +30,12 @@ class HomeScreen extends StatelessWidget {
                 type: BottomNavigationBarType.fixed,
                 currentIndex: HomeCubit.get(context).curIndex,
                 onTap: (value) {
-                  HomeCubit.get(context).changeIndexNav(value, context);
+                  HomeCubit.get(context).changeIndexNav(value);
                 },
                 items: const [
                   BottomNavigationBarItem(
                     icon: Icon(Icons.home_outlined),
                     label: 'Home',
-
                   ),
                   BottomNavigationBarItem(
                     icon: Icon(Icons.search_outlined),
@@ -44,6 +55,9 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
+        
+        
+        
               body: HomeCubit.get(context).curIndex == 0
                   ? HomeViewBody(
                       width: width,

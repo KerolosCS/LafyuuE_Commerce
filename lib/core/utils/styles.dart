@@ -9,7 +9,7 @@ abstract class Styles {
   );
   static const textStyle20 = TextStyle(
     fontSize: 20,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.w700,
     color: kPrimaryFontColor,
   );
   static const textStyle18 = TextStyle(
@@ -19,7 +19,7 @@ abstract class Styles {
   );
   static const textStyle16 = TextStyle(
     fontSize: 16,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w700,
     color: kPrimaryFontColor,
   );
 
@@ -34,8 +34,8 @@ abstract class Styles {
     color: kPrimaryFontColor,
   );
   static const textStyle12 = TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeight.w700,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
     color: kPrimaryFontColor,
   );
   static const textStyle10 = TextStyle(

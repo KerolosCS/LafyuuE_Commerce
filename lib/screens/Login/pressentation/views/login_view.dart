@@ -4,8 +4,8 @@ import 'package:lafuu_e_commerce/screens/Login/pressentation/views/widgets/login
 import 'package:lafuu_e_commerce/screens/Login/pressentation/views/widgets/login_text_forms.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
-
+  LoginScreen({super.key});
+  GlobalKey<FormState> formKeyLog = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -25,7 +25,7 @@ class LoginScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     const LoginHeaderSection(),
-                    const LoginTextFormFieldsSection(),
+                    LoginTextFormFieldsSection(formKeyLog: formKeyLog),
                     const LoginOthwerWaysSection(),
                     // SizedBox(height: MediaQuery.of(context).size.height * .05),
                     const Spacer(),

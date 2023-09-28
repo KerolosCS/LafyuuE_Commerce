@@ -9,18 +9,22 @@ class CustomTextFormField extends StatelessWidget {
     required this.preIcon,
     this.width,
     this.height,
+    this.valid,
   });
   final String? hintTxt;
   final IconData preIcon;
   final double? width;
   final double? height;
+  final String? Function(String?)? valid;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height ?? 48,
+      height: height,
       width: width,
       child: TextFormField(
+        validator: valid,
         decoration: InputDecoration(
+          isDense: true,
           prefixIcon: Icon(preIcon),
           border: const OutlineInputBorder(),
           hintText: hintTxt,

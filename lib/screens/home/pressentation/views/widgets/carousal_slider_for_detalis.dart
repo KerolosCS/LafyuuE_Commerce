@@ -1,14 +1,16 @@
+// ignore_for_file: file_names
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lafuu_e_commerce/screens/home/pressentation/manager/sliderCubit/slider_cubit.dart';
-import 'package:lafuu_e_commerce/screens/home/pressentation/views/flash_sale_veiw.dart';
 import '../../manager/appCubit/home_cubit.dart';
 // import '../manager/cubit/home_cubit.dart';
 
-class CustomSlider extends StatelessWidget {
-  const CustomSlider({super.key, required this.height});
+class CustomSliderForDetails extends StatelessWidget {
+  const CustomSliderForDetails({super.key, required this.height, this.images});
   final double height;
+  final List<String>? images;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SliderCubit, SliderState>(
@@ -19,32 +21,25 @@ class CustomSlider extends StatelessWidget {
               onPageChanged: (index, reason) =>
                   HomeCubit.get(context).slideChange(index),
               viewportFraction: 1,
-              height: height * .29,
+              height: height * .35,
               enableInfiniteScroll: true,
-              autoPlay: true,
+              autoPlay: false,
               autoPlayCurve: Curves.fastOutSlowIn,
               autoPlayInterval: const Duration(seconds: 3),
             ),
-            items: SliderCubit.get(context).imagesBanners.map(
+            items: images?.map(
               (i) {
                 return Builder(
                   builder: (BuildContext context) {
                     return InkWell(
-                      onTap: () {
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context) {
-                            return FlashSaleVeiw(imageUrl: i??'',);
-                          },
-                        ));
-                      },
+                      onTap: () {},
                       child: Container(
                         width: MediaQuery.sizeOf(context).width,
-                        // margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                        margin: const EdgeInsets.symmetric(horizontal: 16),
                         decoration: BoxDecoration(
-                          // color: kPrimaryColor,
                           image: DecorationImage(
                             fit: BoxFit.fill,
-                            image: NetworkImage(i ?? ''),
+                            image: NetworkImage(i),
                           ),
                         ),
                       ),
@@ -57,7 +52,11 @@ class CustomSlider extends StatelessWidget {
         } else if (state is FetchBannersFail) {
           return const Center(child: Text('Dio Exception'));
         } else {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+              child: Padding(
+            padding: EdgeInsets.all(100),
+            child: CircularProgressIndicator(),
+          ));
         }
       },
     );

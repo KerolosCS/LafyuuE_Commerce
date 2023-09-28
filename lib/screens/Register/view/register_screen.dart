@@ -5,8 +5,8 @@ import 'package:lafuu_e_commerce/screens/Register/view/widgets/register_header_s
 import 'package:lafuu_e_commerce/screens/Register/view/widgets/register_text_forms.dart';
 
 class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({super.key});
-
+  RegisterScreen({super.key});
+  GlobalKey<FormState> formKeySign = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -26,7 +26,7 @@ class RegisterScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     const RegisterHeaderSection(),
-                    const RegisterTextFormFieldsSection(),
+                    RegisterTextFormFieldsSection(formKeySign: formKeySign),
                     const HaveAccountSection(),
                     // SizedBox(height: MediaQuery.of(context).size.height * .17),
                     const Spacer(),

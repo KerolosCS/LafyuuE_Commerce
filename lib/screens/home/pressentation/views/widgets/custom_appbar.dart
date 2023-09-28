@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:lafuu_e_commerce/screens/home/pressentation/views/fav_view.dart';
 
 import '../../../../../core/utils/widgets/custom_text_field.dart';
 
@@ -8,7 +9,7 @@ class CustomAppBar extends StatelessWidget {
     super.key,
     required this.width,
   });
-  final width;
+  final double width;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,7 +25,14 @@ class CustomAppBar extends StatelessWidget {
           IconButton(
             padding: const EdgeInsets.all(0),
             constraints: const BoxConstraints(),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const FavouriteScreenView(),
+                ),
+              );
+            },
             icon: Image.asset('assets/images/love.png'),
           ),
           IconButton(
