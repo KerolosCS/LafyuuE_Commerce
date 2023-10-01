@@ -1,3 +1,16 @@
+/*
+ *
+ * ----------------
+ * | 241030072002 |
+ * ----------------
+ * Copyright © [2023] KERO CS FLUTTER DEVELOPMENT.
+ * All Rights Reserved. For inquiries or permissions, contact  me ,
+ * https://www.linkedin.com/in/kerolos-fady-software-engineer/
+ *
+ * /
+ */
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:lafuu_e_commerce/screens/home/data/models/product_model.dart';
 import 'package:lafuu_e_commerce/screens/home/pressentation/views/product_details_view.dart';
@@ -28,10 +41,12 @@ class ProductItem extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Image.network(
-                product?.image ??
+              CachedNetworkImage(
+                placeholder: (context, url) =>
+                    const Center(child: CircularProgressIndicator()),
+                height: 110,
+                imageUrl: product?.image ??
                     'https://student.valuxapps.com/storage/uploads/products/1615440322npwmU.71DVgBTdyLL._SL1500_.jpg',
-                height: 109,
               ),
               const SizedBox(height: 8),
               Text(
@@ -44,7 +59,7 @@ class ProductItem extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    '\$${product?.price}',
+                    '${product?.price} EGP',
                     style: Styles.textStyle12.copyWith(
                       color: kPrimaryColor,
                     ),
@@ -57,7 +72,7 @@ class ProductItem extends StatelessWidget {
                 children: [
                   if (product?.oldPrice != product?.price)
                     Text(
-                      '\$${product?.oldPrice}',
+                      '${product?.oldPrice}',
                       style: Styles.textStyle10.copyWith(
                         // color: kPrimaryColor,
                         decoration: TextDecoration.lineThrough,

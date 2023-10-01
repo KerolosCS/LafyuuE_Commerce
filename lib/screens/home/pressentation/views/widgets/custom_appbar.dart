@@ -1,3 +1,15 @@
+/*
+ *
+ * ----------------
+ * | 241030072002 |
+ * ----------------
+ * Copyright © [2023] KERO CS FLUTTER DEVELOPMENT.
+ * All Rights Reserved. For inquiries or permissions, contact  me ,
+ * https://www.linkedin.com/in/kerolos-fady-software-engineer/
+ *
+ * /
+ */
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lafuu_e_commerce/screens/home/pressentation/views/fav_view.dart';

@@ -1,3 +1,15 @@
+/*
+ *
+ * ----------------
+ * | 241030072002 |
+ * ----------------
+ * Copyright © [2023] KERO CS FLUTTER DEVELOPMENT.
+ * All Rights Reserved. For inquiries or permissions, contact  me ,
+ * https://www.linkedin.com/in/kerolos-fady-software-engineer/
+ *
+ * /
+ */
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lafuu_e_commerce/core/utils/api_service.dart';
@@ -19,7 +31,7 @@ class ProductsCubit extends Cubit<ProductsState> {
       (value) {
         model = ProductMedel.fromJson(value);
 
-        print("KERO :: element :: ${value['data']['data']}");
+        // print("KERO :: element :: ${value['data']['data']}");
         model?.data?.data?.forEach(
           (element) {
             debugPrint("KERO ::: element :: $element");

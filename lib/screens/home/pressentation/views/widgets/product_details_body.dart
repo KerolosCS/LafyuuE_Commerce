@@ -1,4 +1,17 @@
+/*
+ *
+ * ----------------
+ * | 241030072002 |
+ * ----------------
+ * Copyright © [2023] KERO CS FLUTTER DEVELOPMENT.
+ * All Rights Reserved. For inquiries or permissions, contact  me ,
+ * https://www.linkedin.com/in/kerolos-fady-software-engineer/
+ *
+ * /
+ */
+
 import 'package:flutter/material.dart';
+import "package:flutter_bloc/flutter_bloc.dart";
 import 'package:lafuu_e_commerce/core/utils/styles.dart';
 import 'package:lafuu_e_commerce/core/utils/widgets/custom_btn.dart';
 import 'package:lafuu_e_commerce/screens/home/data/models/product_model.dart';
@@ -13,7 +26,6 @@ import 'package:lafuu_e_commerce/screens/home/pressentation/views/widgets/size_l
 import '../../../../../core/utils/constant.dart';
 import '../../../../../core/utils/widgets/smoth_indicator.dart';
 import '../../manager/appCubit/home_cubit.dart';
-import '../../manager/sliderCubit/slider_cubit.dart';
 import 'carousal_slider_for_Detalis.dart';
 
 class ProductDetailsBody extends StatelessWidget {
@@ -22,6 +34,7 @@ class ProductDetailsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.sizeOf(context).height;
+    final homeCubit = context.watch<HomeCubit>();
     return CustomScrollView(
       slivers: [
         SliverToBoxAdapter(
@@ -34,7 +47,7 @@ class ProductDetailsBody extends StatelessWidget {
               CustomSliderForDetails(height: height, images: model?.images),
               const SizedBox(height: 16),
               SmoothIndicatorr(
-                active: HomeCubit.get(context).activeIndex,
+                active: homeCubit.activeIndex,
                 count: model?.images?.length,
               ),
               //Name -------------love
@@ -72,7 +85,7 @@ class ProductDetailsBody extends StatelessWidget {
                     const SizedBox(height: 8),
                     //price
                     Text(
-                      '\$${model?.price}',
+                      '${model?.price} EGP',
                       style: Styles.textStyle20.copyWith(
                         color: kPrimaryColor,
                       ),
@@ -138,7 +151,10 @@ class ProductDetailsBody extends StatelessWidget {
                     const SizedBox(height: 24),
                     //PRoduct Review
 
-                    const HeaderInfo(l: 'Review Product', r: 'See More'),
+                    const HeaderInfo(
+                      l: 'Review Product',
+                      r: 'See More',
+                    ),
                     const SizedBox(height: 8),
                     Row(
                       children: [

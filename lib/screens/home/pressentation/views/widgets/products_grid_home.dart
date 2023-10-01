@@ -1,3 +1,15 @@
+/*
+ *
+ * ----------------
+ * | 241030072002 |
+ * ----------------
+ * Copyright © [2023] KERO CS FLUTTER DEVELOPMENT.
+ * All Rights Reserved. For inquiries or permissions, contact  me ,
+ * https://www.linkedin.com/in/kerolos-fady-software-engineer/
+ *
+ * /
+ */
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lafuu_e_commerce/screens/home/pressentation/manager/products/products_cubit.dart';
@@ -19,7 +31,7 @@ class ProductsGridViewHome extends StatelessWidget {
             crossAxisSpacing: 1,
             childAspectRatio: 1 / 1.5, // width/height
             children: List.generate(
-              10,
+              ProductsCubit.get(context).products.length,
               (index) => ProductItem(
                   product: ProductsCubit.get(context).products[index]),
             ),

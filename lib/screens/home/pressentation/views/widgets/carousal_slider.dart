@@ -1,3 +1,16 @@
+/*
+ *
+ * ----------------
+ * | 241030072002 |
+ * ----------------
+ * Copyright © [2023] KERO CS FLUTTER DEVELOPMENT.
+ * All Rights Reserved. For inquiries or permissions, contact  me ,
+ * https://www.linkedin.com/in/kerolos-fady-software-engineer/
+ *
+ * /
+ */
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,22 +44,20 @@ class CustomSlider extends StatelessWidget {
                   builder: (BuildContext context) {
                     return InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context) {
-                            return FlashSaleVeiw(imageUrl: i??'',);
-                          },
-                        ));
-                      },
-                      child: Container(
-                        width: MediaQuery.sizeOf(context).width,
-                        // margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                        decoration: BoxDecoration(
-                          // color: kPrimaryColor,
-                          image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: NetworkImage(i ?? ''),
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return FlashSaleVeiw(
+                                imageUrl: i ?? '',
+                              );
+                            },
                           ),
-                        ),
+                        );
+                      },
+                      child: CachedNetworkImage(
+                        fit: BoxFit.fill,
+                        imageUrl: i ?? '',
                       ),
                     );
                   },

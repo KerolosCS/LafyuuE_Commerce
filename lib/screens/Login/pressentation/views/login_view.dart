@@ -1,11 +1,26 @@
+/*
+ *
+ * ----------------
+ * | 241030072002 |
+ * ----------------
+ * Copyright © [2023] KERO CS FLUTTER DEVELOPMENT.
+ * All Rights Reserved. For inquiries or permissions, contact  me ,
+ * https://www.linkedin.com/in/kerolos-fady-software-engineer/
+ *
+ * /
+ */
+
 import 'package:flutter/material.dart';
 import 'package:lafuu_e_commerce/screens/Login/pressentation/views/widgets/login_header_section.dart';
 import 'package:lafuu_e_commerce/screens/Login/pressentation/views/widgets/login_othereays_section.dart';
 import 'package:lafuu_e_commerce/screens/Login/pressentation/views/widgets/login_text_forms.dart';
 
+// ignore: must_be_immutable
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
   GlobalKey<FormState> formKeyLog = GlobalKey();
+  var emailCont = TextEditingController();
+  var passCont = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -25,7 +40,11 @@ class LoginScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     const LoginHeaderSection(),
-                    LoginTextFormFieldsSection(formKeyLog: formKeyLog),
+                    LoginTextFormFieldsSection(
+                      formKeyLog: formKeyLog,
+                      emailCont: emailCont,
+                      passCont: passCont,
+                    ),
                     const LoginOthwerWaysSection(),
                     // SizedBox(height: MediaQuery.of(context).size.height * .05),
                     const Spacer(),

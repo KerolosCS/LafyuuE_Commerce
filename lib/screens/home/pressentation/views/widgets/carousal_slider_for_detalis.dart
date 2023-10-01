@@ -1,5 +1,18 @@
+/*
+ *
+ * ----------------
+ * | 241030072002 |
+ * ----------------
+ * Copyright © [2023] KERO CS FLUTTER DEVELOPMENT.
+ * All Rights Reserved. For inquiries or permissions, contact  me ,
+ * https://www.linkedin.com/in/kerolos-fady-software-engineer/
+ *
+ * /
+ */
+
 // ignore_for_file: file_names
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,14 +46,10 @@ class CustomSliderForDetails extends StatelessWidget {
                   builder: (BuildContext context) {
                     return InkWell(
                       onTap: () {},
-                      child: Container(
-                        width: MediaQuery.sizeOf(context).width,
-                        margin: const EdgeInsets.symmetric(horizontal: 16),
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: NetworkImage(i),
-                          ),
+                      child: CachedNetworkImage(
+                        imageUrl: i,
+                        placeholder: (context, url) => const Center(
+                          child: CircularProgressIndicator(),
                         ),
                       ),
                     );

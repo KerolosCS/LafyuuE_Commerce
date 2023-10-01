@@ -1,3 +1,15 @@
+<!--
+  ~ /*
+  ~ ----------------
+  ~ | 241030072002 |
+  ~ ----------------
+  ~ Copyright © [2023] KERO CS FLUTTER DEVELOPMENT.
+  ~ All Rights Reserved. For inquiries or permissions, contact  me ,
+  ~ https://www.linkedin.com/in/kerolos-fady-software-engineer/
+  ~
+  ~ */
+  -->
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- The INTERNET permission is required for development. Specifically,
          the Flutter tool needs it to communicate with the running application

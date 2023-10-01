@@ -1,3 +1,16 @@
+/*
+ *
+ * ----------------
+ * | 241030072002 |
+ * ----------------
+ * Copyright © [2023] KERO CS FLUTTER DEVELOPMENT.
+ * All Rights Reserved. For inquiries or permissions, contact  me ,
+ * https://www.linkedin.com/in/kerolos-fady-software-engineer/
+ *
+ * /
+ */
+
+//All rights -- Kerolos Fady --Flutter Developer
 import 'package:flutter/material.dart';
 
 class SignInWay extends StatelessWidget {
@@ -9,6 +22,7 @@ class SignInWay extends StatelessWidget {
     return InkWell(
       onTap: () {},
       child: Container(
+        //All rights -- Kerolos Fady --Flutter Developer
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
@@ -39,3 +53,4 @@ class SignInWay extends StatelessWidget {
     );
   }
 }
+//All rights -- Kerolos Fady --Flutter Developer
