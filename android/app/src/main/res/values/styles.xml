@@ -1,16 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ /*
-  ~ ----------------
-  ~ | 241030072002 |
-  ~ ----------------
-  ~ Copyright © [2023] KERO CS FLUTTER DEVELOPMENT.
-  ~ All Rights Reserved. For inquiries or permissions, contact  me ,
-  ~ https://www.linkedin.com/in/kerolos-fady-software-engineer/
-  ~
-  ~ */
-  -->
-
 <resources>
     <!-- Theme applied to the Android Window while the process is starting when the OS's Dark Mode setting is off -->
     <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
