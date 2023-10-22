@@ -68,9 +68,10 @@ class ProductItem extends StatelessWidget {
                   ),
                 ],
               ),
+              if ((product?.oldPrice != product?.price) &&
+                  product?.oldPrice != null)
               Row(
-                children: [
-                  if (product?.oldPrice != product?.price)
+                  children: [
                     Text(
                       '${product?.oldPrice}',
                       style: Styles.textStyle10.copyWith(

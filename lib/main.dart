@@ -40,7 +40,8 @@ class LafuuApp extends StatelessWidget {
           create: (context) => HomeCubit(ApiService(Dio())),
         ),
         BlocProvider(
-          create: (context) => ProductsCubit(ApiService(Dio()))..getProducts(),
+          create: (context) =>
+              ProductsCubit(ApiService(Dio()))..fetchProducts(),
         ),
       ],
       child: MaterialApp.router(

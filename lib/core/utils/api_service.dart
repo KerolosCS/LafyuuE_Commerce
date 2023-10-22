@@ -19,8 +19,14 @@ class ApiService {
 
   ApiService(this._dio);
 
-  Future<Map<String, dynamic>> get({required String endPoint}) async {
-    _dio.options = BaseOptions(baseUrl: _baseUrl, headers: {'lang': 'en'});
+  Future<Map<String, dynamic>> get({
+    required String endPoint,
+    String? auth,
+  }) async {
+    _dio.options = BaseOptions(baseUrl: _baseUrl, headers: {
+      'lang': 'en',
+      'Authorization': auth,
+    });
     var response = await _dio.get('$_baseUrl$endPoint');
     return response.data;
   }
@@ -38,12 +44,11 @@ class ApiService {
 //   ApiService api = ApiService(Dio());
 
 //   var res = await api.postData(
-//     'login',
+//     'products/search',
 //     {
-//       'email': 'qqqw@gmail.com',
-//       'password': '123456',
+//       "text": "apple",
 //     },
 //   );
 //   // ignore: avoid_print
-//   print(res['message']);
+//   print(res['data']['data']);
 // }

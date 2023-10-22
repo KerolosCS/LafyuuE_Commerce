@@ -1,18 +1,21 @@
-/*
- *
- * ----------------
- * | 241030072002 |
- * ----------------
- * Copyright © [2023] KERO CS FLUTTER DEVELOPMENT.
- * All Rights Reserved. For inquiries or permissions, contact  me ,
- * https://www.linkedin.com/in/kerolos-fady-software-engineer/
- *
- * /
- */
+import 'package:dio/dio.dart';
+import 'package:lafuu_e_commerce/core/utils/api_service.dart';
+import 'package:lafuu_e_commerce/screens/home/data/models/category_model.dart';
+import 'package:lafuu_e_commerce/screens/home/data/models/product_model.dart';
 
-import 'package:lafuu_e_commerce/screens/home/data/models/banner_models.dart';
+class ProductRepo {
+  ApiService api = ApiService(Dio());
+  Future<ProductMedel> getProducts() async {
+    var res = await api.get(endPoint: 'products');
+    return ProductMedel.fromJson(res);
+  }
+}
 
-//All rights -- Kerolos Fady --Flutter Developer
-abstract class HomeRepo {
-  Future<BannerModel> fetchBanners();
+
+class CategoryRepo {
+  ApiService api = ApiService(Dio());
+  Future<CategoriesModel> getCategories() async {
+    var res = await api.get(endPoint: 'categories');
+    return CategoriesModel.fromJson(res);
+  }
 }

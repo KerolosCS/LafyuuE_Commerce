@@ -91,6 +91,11 @@ class RegisterTextFormFieldsSection extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               CustomTextFormField(
+                suffIcon: HomeCubit.get(context).isObsec == true
+                    ? Icons.visibility_off
+                    : Icons.visibility,
+                pressSufffix: () => HomeCubit.get(context).changeVis(),
+                obsec: HomeCubit.get(context).isObsec,
                 cont: passwordCont,
                 valid: (p0) =>
                     p0!.isEmpty ? 'Please enter your password' : null,
@@ -99,6 +104,11 @@ class RegisterTextFormFieldsSection extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               CustomTextFormField(
+                suffIcon: HomeCubit.get(context).isObsec2 == true
+                    ? Icons.visibility_off
+                    : Icons.visibility,
+                pressSufffix: () => HomeCubit.get(context).changeVisTwo(),
+                obsec: HomeCubit.get(context).isObsec2,
                 cont: passwordAgainCont,
                 valid: (p0) =>
                     p0!.isEmpty ? 'Please enter your password' : null,

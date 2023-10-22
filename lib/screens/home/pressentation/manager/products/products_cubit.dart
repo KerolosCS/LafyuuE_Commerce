@@ -10,10 +10,10 @@
  * /
  */
 
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lafuu_e_commerce/core/utils/api_service.dart';
 import 'package:lafuu_e_commerce/screens/home/data/models/product_model.dart';
+import 'package:lafuu_e_commerce/screens/home/data/repos/home_repo.dart';
 
 part 'products_state.dart';
 
@@ -25,23 +25,22 @@ class ProductsCubit extends Cubit<ProductsState> {
 
   ProductMedel? model;
   List<Product> products = [];
-  void getProducts() {
+  ProductRepo productRepo = ProductRepo();
+  void fetchProducts() {
     emit(GetProductsLoading());
-    api.get(endPoint: 'products').then(
+    productRepo.getProducts().then(
       (value) {
-        model = ProductMedel.fromJson(value);
-
-        // print("KERO :: element :: ${value['data']['data']}");
+        model = value;
         model?.data?.data?.forEach(
           (element) {
-            debugPrint("KERO ::: element :: $element");
             products.add(element);
           },
         );
-        // debugPrint('KERO ::: Model :: ${model?.data?.data}');
-
-        debugPrint('KERO PRODUCTS :: $products');
         emit(GetProductsSuccess());
+      },
+    ).catchError(
+      (e) {
+        emit(GetProductsFail());
       },
     );
   }

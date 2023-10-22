@@ -12,7 +12,7 @@
 
 import 'package:flutter/material.dart';
 // import 'package:flutter/widgets.dart';
-import 'package:lafuu_e_commerce/screens/offers_eplore/pressentation/views/widgets/explore_view_body.dart';
+import 'package:lafuu_e_commerce/screens/offers_eplore/pressentation/views/widgets/offers_view_body.dart';
 
 class OffersView extends StatelessWidget {
   const OffersView({super.key});
@@ -20,7 +20,7 @@ class OffersView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: EploreViewbody(),
+      body: OffersViewbody(),
     );
   }
 }

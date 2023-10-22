@@ -10,10 +10,14 @@
  * /
  */
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lafuu_e_commerce/core/constant.dart';
 import 'package:lafuu_e_commerce/core/utils/api_service.dart';
 import 'package:lafuu_e_commerce/screens/cart/pressentation/views/widgets/cart_view_body.dart';
+import 'package:lafuu_e_commerce/screens/home/data/models/person.dart';
+import 'package:lafuu_e_commerce/screens/offers_eplore/pressentation/manager/cubit/search_cubit.dart';
 import 'package:lafuu_e_commerce/screens/offers_eplore/pressentation/views/widgets/explore_view_body.dart';
 import 'package:lafuu_e_commerce/screens/offers_eplore/pressentation/views/widgets/offers_view_body.dart';
 import 'package:lafuu_e_commerce/screens/settings/pressentation/views/widgets/settings_view_body.dart';
@@ -31,12 +35,15 @@ class HomeCubit extends Cubit<HomeState> {
     emit(SlideChangeState());
   }
 
-  List screens = const [
-    Text(''),
-    EploreViewbody(),
-    CartViewBody(),
-    OffersViewbody(),
-    SettingsViewBody()
+  List screens = [
+    const Text(''),
+    BlocProvider(
+      create: (context) => SearchCubit(ApiService(Dio())),
+      child: const SafeArea(child: EploreViewbody()),
+    ),
+    const SafeArea(child: CartViewBody()),
+    const SafeArea(child: OffersViewbody()),
+    const SafeArea(child: SettingsViewBody())
   ];
   int curIndex = 0;
   void changeIndexNav(int index) {
@@ -61,6 +68,7 @@ class HomeCubit extends Cubit<HomeState> {
     ).then(
       (value) {
         if (value['status'] == true) {
+          kToken = value['data']['token'];
           emit(LoginSuccess());
         } else {
           emit(LoginSuccessWrongPass());
@@ -93,6 +101,7 @@ class HomeCubit extends Cubit<HomeState> {
       ).then(
         (value) {
           if (value['status'] == true) {
+            kToken = value['data']['token'];
             emit(RegisterSuccess());
           } else {
             emit(RegisterSuccessButWrong(value['message']));
@@ -107,5 +116,37 @@ class HomeCubit extends Cubit<HomeState> {
     } else {
       emit(CheckPassword('check your Password'));
     }
+  }
+
+  bool isObsec = false;
+  void changeVis() {
+    isObsec = !isObsec;
+    emit(UpdateVisState());
+  }
+
+  bool isObsec2 = false;
+  void changeVisTwo() {
+    isObsec2 = !isObsec2;
+    emit(UpdateVisState());
+  }
+
+  Person? personModel;
+  void getProfile(String auth) {
+    emit(ProfileLoading());
+    api
+        .get(
+      endPoint: 'profile',
+      auth: auth,
+    )
+        .then(
+      (value) {
+        personModel = Person.fromJson(value);
+        emit(ProfileSuccess());
+      },
+    ).catchError(
+      (e) {
+        emit(ProfileFailure(e.toString()));
+      },
+    );
   }
 }

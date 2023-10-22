@@ -55,9 +55,17 @@ class CustomSlider extends StatelessWidget {
                           ),
                         );
                       },
-                      child: CachedNetworkImage(
-                        fit: BoxFit.fill,
-                        imageUrl: i ?? '',
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          image: DecorationImage(
+                            fit: BoxFit.fill,
+                            image: CachedNetworkImageProvider(
+                              i ?? '',
+                            ),
+                          ),
+                        ),
+                        
                       ),
                     );
                   },

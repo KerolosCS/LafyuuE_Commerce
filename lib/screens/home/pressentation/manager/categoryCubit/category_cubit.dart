@@ -13,6 +13,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lafuu_e_commerce/core/utils/api_service.dart';
+import 'package:lafuu_e_commerce/screens/home/data/repos/home_repo.dart';
 
 import '../../../data/models/category_model.dart';
 
@@ -25,19 +26,17 @@ class CategoryCubit extends Cubit<CategoryState> {
 
   CategoriesModel? cat;
   List<DataOfCategory> cats = [];
-  void getCategories() {
+  CategoryRepo catRepo = CategoryRepo();
+  void fetchCategories() {
     emit(FetchCategoryLoading());
-    api.get(endPoint: 'categories').then(
-      (value) {
-        cat = CategoriesModel.fromJson(value);
-        debugPrint('KERO :: ${cat?.data?.data?[0].name}');
-        cat?.data?.data?.forEach((element) {
-          cats.add(element);
-        });
-        emit(FetchCategorySuccess());
-      },
-    ).catchError((e) {
-      debugPrint("KERO ERRRORRR ::: ${e.toString()}");
+    catRepo.getCategories().then((value) {
+      cat = value;
+      cat?.data?.data?.forEach((element) {
+        cats.add(element);
+      });
+
+      emit(FetchCategorySuccess());
+    }).catchError((e) {
       emit(FetchCategoryFail());
     });
   }

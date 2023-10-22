@@ -38,6 +38,8 @@ final class RegisterLodinag extends HomeState {}
 
 final class RegisterSuccess extends HomeState {}
 
+final class UpdateVisState extends HomeState {}
+
 final class RegisterSuccessButWrong extends HomeState {
   final String errMsg;
 
@@ -54,4 +56,14 @@ final class RegisterFailure extends HomeState {
   final String err;
 
   RegisterFailure(this.err);
+}
+
+class ProfileSuccess extends HomeState {}
+
+class ProfileLoading extends HomeState {}
+
+class ProfileFailure extends HomeState {
+  final String errMsg;
+
+  ProfileFailure(this.errMsg);
 }

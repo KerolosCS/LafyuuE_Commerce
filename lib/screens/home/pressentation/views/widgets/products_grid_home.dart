@@ -33,7 +33,8 @@ class ProductsGridViewHome extends StatelessWidget {
             children: List.generate(
               ProductsCubit.get(context).products.length,
               (index) => ProductItem(
-                  product: ProductsCubit.get(context).products[index]),
+                product: ProductsCubit.get(context).products[index],
+              ),
             ),
           );
         } else if (state is GetProductsFail) {

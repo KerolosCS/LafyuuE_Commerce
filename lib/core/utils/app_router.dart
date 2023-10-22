@@ -15,7 +15,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:lafuu_e_commerce/screens/Login/pressentation/views/login_view.dart';
 import 'package:lafuu_e_commerce/screens/Register/view/register_screen.dart';
-import 'package:lafuu_e_commerce/screens/home/pressentation/views/flash_sale_veiw.dart';
 import 'package:lafuu_e_commerce/screens/home/pressentation/views/home_veiw.dart';
 // import 'package:lafuu_e_commerce/screens/offers_eplore/pressentation/views/explore_view.dart';
 // import 'package:lafuu_e_commerce/screens/splash_screen.dart';

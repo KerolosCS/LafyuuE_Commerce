@@ -64,8 +64,8 @@ class Data {
 
 class Product {
   int? id;
-  num? price;
-  num? oldPrice;
+  num price = 0.0;
+  num oldPrice = 0.0;
   int? discount;
   String? image;
   String? name;
