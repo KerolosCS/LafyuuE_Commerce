@@ -42,6 +42,33 @@ class RegisterTextFormFieldsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<HomeCubit, HomeState>(
       listener: (context, state) {
+        if (state is InternetConnectionFail) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              behavior: SnackBarBehavior.floating,
+              margin: EdgeInsets.all(16),
+              showCloseIcon: true,
+              elevation: 8,
+              backgroundColor: Colors.amber,
+              shape: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.amber),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(16),
+                ),
+              ),
+              content: Row(
+                children: [
+                  Icon(
+                    Icons.wifi_off,
+                    color: Colors.white,
+                  ),
+                  SizedBox(width: 16),
+                  Text('No Internet Connection')
+                ],
+              ),
+            ),
+          );
+        }
         if (state is CheckPassword) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
@@ -119,6 +146,7 @@ class RegisterTextFormFieldsSection extends StatelessWidget {
               CustomBtn(
                 onPress: () {
                   if (formKeySign.currentState!.validate()) {
+                    HomeCubit.get(context).checkInternet();
                     HomeCubit.get(context).registerAccount(
                       nameCont!.text,
                       phoneCont!.text,

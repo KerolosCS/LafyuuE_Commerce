@@ -14,6 +14,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lafuu_e_commerce/core/cache/cache_helper.dart';
 import 'package:lafuu_e_commerce/core/utils/api_service.dart';
 import 'package:lafuu_e_commerce/core/utils/app_router.dart';
 import 'package:lafuu_e_commerce/core/utils/constant.dart';
@@ -22,9 +23,10 @@ import 'package:lafuu_e_commerce/screens/home/pressentation/manager/products/pro
 
 import 'core/bloc_opserver.dart';
 
-void main(List<String> args) {
-  // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+void main(List<String> args) async {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  await CacheHelper.initCache();
   Bloc.observer = MyBlocObserver();
   runApp(const LafuuApp());
 }

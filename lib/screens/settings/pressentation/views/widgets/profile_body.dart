@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lafuu_e_commerce/core/constant.dart';
+import 'package:go_router/go_router.dart';
+import 'package:lafuu_e_commerce/core/cache/cache_helper.dart';
+import 'package:lafuu_e_commerce/core/utils/app_router.dart';
 import 'package:lafuu_e_commerce/core/utils/constant.dart';
 import 'package:lafuu_e_commerce/core/utils/styles.dart';
 import 'package:lafuu_e_commerce/core/utils/widgets/custom_btn.dart';
-import 'package:lafuu_e_commerce/screens/Login/pressentation/views/login_view.dart';
 import 'package:lafuu_e_commerce/screens/home/pressentation/manager/appCubit/home_cubit.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -18,7 +19,8 @@ class ProfileViewBody extends StatefulWidget {
 class _ProfileViewBodyState extends State<ProfileViewBody> {
   @override
   void initState() {
-    HomeCubit.get(context).getProfile(kToken);
+    HomeCubit.get(context)
+        .getProfile(CacheHelper.getString(key: 'TOKEN') ?? "");
     super.initState();
   }
 
@@ -58,20 +60,17 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
                             horizontal: 12, vertical: 8),
                         child: CustomBtn(
                           onPress: () {
-                            kToken = '';
-                            Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LoginScreen(),
-                              ),
-                              (route) => false,
-                            );
+                            CacheHelper.clearCachedValue(key: 'TOKEN');
+                            GoRouter.of(context)
+                                .pushReplacement(AppRouter.kLogScreen);
                           },
                           child: const Text(
                             'Logout',
                             style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w700 ,fontSize: 16),
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 16,
+                            ),
                           ),
                         ),
                       ),

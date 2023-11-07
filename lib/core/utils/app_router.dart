@@ -13,6 +13,7 @@
 //All rights -- Kerolos Fady --Flutter Developer
 // import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lafuu_e_commerce/core/cache/cache_helper.dart';
 import 'package:lafuu_e_commerce/screens/Login/pressentation/views/login_view.dart';
 import 'package:lafuu_e_commerce/screens/Register/view/register_screen.dart';
 import 'package:lafuu_e_commerce/screens/home/pressentation/views/home_veiw.dart';
@@ -24,9 +25,11 @@ abstract class AppRouter {
   static const kRegScreen = '/RegisterScreen';
   static const kHomeScreen = '/Home';
   static const kFlashScreen = '/flash';
-
+  static String? t = CacheHelper.getString(key: 'TOKEN');
+  
   static final router = GoRouter(
     //All rights -- Kerolos Fady --Flutter Developer
+
     routes: [
       // GoRoute(
       //   path: '/',
@@ -35,7 +38,8 @@ abstract class AppRouter {
       GoRoute(
         path: '/',
         name: 'root',
-        builder: (context, state) => LoginScreen(),
+        builder: (context, state) =>
+            t == null ? LoginScreen() : const HomeScreen(),
       ),
       GoRoute(
         path: '/LoginScreen',

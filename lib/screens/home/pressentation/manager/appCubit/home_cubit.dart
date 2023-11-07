@@ -13,6 +13,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:lafuu_e_commerce/core/cache/cache_helper.dart';
 import 'package:lafuu_e_commerce/core/constant.dart';
 import 'package:lafuu_e_commerce/core/utils/api_service.dart';
 import 'package:lafuu_e_commerce/screens/cart/pressentation/views/widgets/cart_view_body.dart';
@@ -68,7 +70,9 @@ class HomeCubit extends Cubit<HomeState> {
     ).then(
       (value) {
         if (value['status'] == true) {
-          kToken = value['data']['token'];
+          
+          // kToken = value['data']['token'];
+          CacheHelper.setString(key: 'TOKEN', value: value['data']['token']);
           emit(LoginSuccess());
         } else {
           emit(LoginSuccessWrongPass());
@@ -101,7 +105,8 @@ class HomeCubit extends Cubit<HomeState> {
       ).then(
         (value) {
           if (value['status'] == true) {
-            kToken = value['data']['token'];
+            // kToken = value['data']['token'];
+            CacheHelper.setString(key: 'TOKEN', value: value['data']['token']);
             emit(RegisterSuccess());
           } else {
             emit(RegisterSuccessButWrong(value['message']));
@@ -148,5 +153,16 @@ class HomeCubit extends Cubit<HomeState> {
         emit(ProfileFailure(e.toString()));
       },
     );
+  }
+
+  void checkInternet() async {
+    bool result = await InternetConnectionChecker().hasConnection;
+    if (result == true) {
+      emit(InternetConnectionSuccess());
+    } else {
+      emit(InternetConnectionFail());
+
+      emit(Any());
+    }
   }
 }

@@ -67,3 +67,9 @@ class ProfileFailure extends HomeState {
 
   ProfileFailure(this.errMsg);
 }
+
+
+class InternetConnectionSuccess extends HomeState {}
+
+class InternetConnectionFail extends HomeState {}
+class Any extends HomeState {}
